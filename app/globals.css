@@ -1,0 +1,218 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-playfair: 'Playfair Display', Georgia, serif;
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --color-background: #F8F6F2;
+  --color-foreground: #111111;
+  --color-accent: #C9A46C;
+  --color-accent-light: #D9BA8C;
+  --color-accent-dark: #A8823F;
+  --color-muted: #6B6B6B;
+  --color-white: #FFFFFF;
+  --color-card: #F2EFE9;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+}
+
+/* ─── Selection ─── */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 3px;
+}
+
+/* ─── Focus ring ─── */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Utility classes ─── */
+.container-luxury {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 4vw, 5rem);
+  padding-right: clamp(1rem, 4vw, 5rem);
+}
+
+.section-padding {
+  padding-top: clamp(5rem, 10vw, 9rem);
+  padding-bottom: clamp(5rem, 10vw, 9rem);
+}
+
+.text-display-xl {
+  font-family: var(--font-playfair);
+  font-size: clamp(2.5rem, 6.5vw, 6rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.text-display-lg {
+  font-family: var(--font-playfair);
+  font-size: clamp(2rem, 5vw, 4.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.text-display-md {
+  font-family: var(--font-playfair);
+  font-size: clamp(1.65rem, 3.5vw, 3rem);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+}
+
+.text-display-sm {
+  font-family: var(--font-playfair);
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  line-height: 1.25;
+}
+
+/* ─── Button Styles ─── */
+@layer components {
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background-color: var(--color-foreground);
+    color: var(--color-white);
+    font-family: var(--font-inter);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background-color: transparent;
+    color: var(--color-foreground);
+    font-family: var(--font-inter);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px solid var(--color-foreground);
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-foreground);
+    color: var(--color-white);
+  }
+
+  .btn-accent {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    font-family: var(--font-inter);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+  }
+
+  .btn-accent:hover {
+    background-color: var(--color-accent-dark);
+    color: var(--color-white);
+    transform: translateY(-1px);
+  }
+}
+
+/* ─── Divider ─── */
+.divider-accent {
+  width: 3rem;
+  height: 1px;
+  background-color: var(--color-accent);
+  margin: 1.5rem 0;
+}
+
+/* ─── Eyebrow text ─── */
+.eyebrow {
+  font-family: var(--font-inter);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* ─── Image Overlay ─── */
+.img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(17, 17, 17, 0.35) 0%,
+    rgba(17, 17, 17, 0.15) 40%,
+    rgba(17, 17, 17, 0.65) 100%
+  );
+}
